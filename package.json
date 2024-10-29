@@ -1,0 +1,28 @@
+{
+  "name": "network",
+  "version": "1.5.1",
+  "private": true,
+  "license": "MIT",
+  "scripts": {
+    "build": "turbo build",
+    "dev": "turbo dev",
+    "lint": "turbo lint",
+    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "ui": "pnpm --filter @network/ui ui",
+    "clean": "python3 script/clean_projects.py"
+  },
+  "devDependencies": {
+    "@network/eslint-config": "workspace:*",
+    "@network/typescript-config": "workspace:*",
+    "prettier": "catalog:",
+    "turbo": "^2.2.3"
+  },
+  "packageManager": "pnpm@9.12.0",
+  "engines": {
+    "node": ">=20.17.0"
+  },
+  "volta": {
+    "node": "20.17.0",
+    "pnpm": "9.12.0"
+  }
+}
