@@ -14,13 +14,7 @@ import { useEffect, useState } from "react";
 import { LogoTextsvg } from "../logoTextsvg";
 import { Button } from "./button";
 
-export default function MobileMenu({
-  user,
-  handleSignOut,
-}: {
-  user: any;
-  handleSignOut: () => Promise<void>;
-}) {
+export default function MobileMenu() {
   const [isOpen, setIsOpen] = useState(false);
   const { theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);

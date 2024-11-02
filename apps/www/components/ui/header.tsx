@@ -118,7 +118,7 @@ export default async function Header() {
                 <DarkModeToggle />
               </div>
               <div className="lg:hidden">
-                <MobileMenu user={null} handleSignOut={null} />
+                <MobileMenu />
               </div>
             </div>
           </div>
