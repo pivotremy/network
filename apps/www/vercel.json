@@ -1,8 +1,8 @@
 {
-  "rewrites": [
-    {
-      "source": "/docs/:path*",
-      "destination": "https://docs.souremphi.com/:path*"
-    }
-  ]
+  // "rewrites": [
+  //   {
+  //     "source": "/docs/:path*",
+  //     "destination": "https://docs.souremphi.com/:path*"
+  //   }
+  // ]
 }
