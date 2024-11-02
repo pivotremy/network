@@ -1,5 +1,5 @@
 {
-  "name": "@network/ui",
+  "name": "@souremphi/ui",
   "version": "0.0.0",
   "private": true,
   "scripts": {
@@ -10,8 +10,8 @@
     "react": "^18"
   },
   "devDependencies": {
-    "@network/eslint-config": "workspace:*",
-    "@network/typescript-config": "workspace:*",
+    "@souremphi/eslint-config": "workspace:*",
+    "@souremphi/typescript-config": "workspace:*",
     "@types/node": "catalog:",
     "@types/react": "catalog:react18",
     "autoprefixer": "^10",

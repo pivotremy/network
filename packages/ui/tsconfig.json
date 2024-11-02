@@ -1,9 +1,9 @@
 {
-  "extends": "@network/typescript-config/react-library.json",
+  "extends": "@souremphi/typescript-config/react-library.json",
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@network/ui/*": ["./src/*"]
+      "@souremphi/ui/*": ["./src/*"]
     }
   },
   "include": ["src"],

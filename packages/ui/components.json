@@ -11,10 +11,10 @@
     "prefix": ""
   },
   "aliases": {
-    "components": "@network/ui/components",
-    "ui": "@network/ui/components/ui",
-    "utils": "@network/ui/lib/utils",
-    "lib": "@network/ui/lib",
-    "hooks": "@network/ui/hooks"
+    "components": "@souremphi/ui/components",
+    "ui": "@souremphi/ui/components/ui",
+    "utils": "@souremphi/ui/lib/utils",
+    "lib": "@souremphi/ui/lib",
+    "hooks": "@souremphi/ui/hooks"
   }
 }

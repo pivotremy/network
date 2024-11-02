@@ -1,1 +1,1 @@
-# `@network/ui`
+# `@souremphi/ui`

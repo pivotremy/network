@@ -8,12 +8,12 @@
     "dev": "turbo dev",
     "lint": "turbo lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
-    "ui": "pnpm --filter @network/ui ui",
+    "ui": "pnpm --filter @souremphi/ui ui",
     "clean": "python3 script/clean_projects.py"
   },
   "devDependencies": {
-    "@network/eslint-config": "workspace:*",
-    "@network/typescript-config": "workspace:*",
+    "@souremphi/eslint-config": "workspace:*",
+    "@souremphi/typescript-config": "workspace:*",
     "prettier": "catalog:",
     "turbo": "^2.2.3"
   },
