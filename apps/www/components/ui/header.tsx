@@ -12,7 +12,6 @@ import {
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { ComponentPropsWithoutRef, ReactNode, forwardRef } from "react";
-import DarkModeToggle from "./darkmode-toggle";
 import MobileMenu from "./mobile-menu";
 const NavItem = ({
   href,
@@ -115,7 +114,6 @@ export default async function Header() {
                 >
                   Sign Up
                 </Button>
-                <DarkModeToggle />
               </div>
               <div className="lg:hidden">
                 <MobileMenu />

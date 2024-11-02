@@ -40,8 +40,8 @@ export default async function RootLayout({
           <div className="flex min-h-screen flex-col overflow-hidden">
             <Header />
             {children}
-            <Analytics />
             <SpeedInsights />
+            <Analytics />
           </div>
         </AppProvider>
       </body>
