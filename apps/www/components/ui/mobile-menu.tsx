@@ -7,7 +7,7 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import { Menu, MoonStar, Sun } from "lucide-react";
+import { Menu } from "lucide-react";
 import { useTheme } from "next-themes";
 import Link from "next/link";
 import { useEffect, useState } from "react";
@@ -109,25 +109,6 @@ export default function MobileMenu() {
               </Button>
             </Link>
           </div>
-          {mounted && (
-            <Button
-              variant="outline"
-              className="w-full justify-center"
-              onClick={() => setTheme(theme === "light" ? "dark" : "light")}
-            >
-              {theme === "light" ? (
-                <>
-                  <Sun strokeWidth={1} className="mr-2 h-5 w-5" />
-                  Light
-                </>
-              ) : (
-                <>
-                  <MoonStar strokeWidth={1} className="mr-2 h-5 w-5" />
-                  Dark
-                </>
-              )}
-            </Button>
-          )}
         </div>
       </SheetContent>
     </Sheet>
