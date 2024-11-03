@@ -10,7 +10,7 @@ export default function ConnectedAccountsLayout({
     <>
       <AnnotatedSection
         title="Connected accounts"
-        description="Sign up faster to your account by linking it to Google or Microsoft."
+        description="Sign up for your account faster by linking it"
       >
         {children}
       </AnnotatedSection>

@@ -310,47 +310,49 @@ export const providers = [
       };
     }
   }),
-  GoogleProvider({
-    id: IdentityProvider.Google,
-    name: IdentityProvider.Google,
-    clientId: process.env.AUTH_GOOGLE_CLIENT_ID as string,
-    clientSecret: process.env.AUTH_GOOGLE_CLIENT_SECRET as string,
-    allowDangerousEmailAccountLinking: true,
-    authorization: {
-      params: {
-        scope: 'openid email profile',
-        prompt: 'consent',
-        access_type: 'offline',
-        response_type: 'code'
+  process.env.NEXT_PUBLIC_GOOGLE_AUTH_ENABLED === 'true' &&
+    GoogleProvider({
+      id: IdentityProvider.Google,
+      name: IdentityProvider.Google,
+      clientId: process.env.AUTH_GOOGLE_CLIENT_ID as string,
+      clientSecret: process.env.AUTH_GOOGLE_CLIENT_SECRET as string,
+      allowDangerousEmailAccountLinking: true,
+      authorization: {
+        params: {
+          scope: 'openid email profile',
+          prompt: 'consent',
+          access_type: 'offline',
+          response_type: 'code'
+        }
       }
-    }
-  }),
-  MicrosoftEntraIdProvider({
-    id: IdentityProvider.MicrosoftEntraId,
-    name: IdentityProvider.MicrosoftEntraId,
-    clientId: process.env.AUTH_MICROSOFT_ENTRA_ID_CLIENT_ID as string,
-    clientSecret: process.env.AUTH_MICROSOFT_ENTRA_ID_CLIENT_SECRET as string,
-    allowDangerousEmailAccountLinking: true,
-    token: {
-      url: 'https://login.microsoftonline.com/common/oauth2/v2.0/token'
-    },
-    authorization: {
-      url: 'https://login.microsoftonline.com/common/oauth2/v2.0/authorize',
-      params: {
-        scope: 'openid profile email offline_access User.Read'
+    }),
+  process.env.NEXT_PUBLIC_MICROSOFT_AUTH_ENABLED === 'true' &&
+    MicrosoftEntraIdProvider({
+      id: IdentityProvider.MicrosoftEntraId,
+      name: IdentityProvider.MicrosoftEntraId,
+      clientId: process.env.AUTH_MICROSOFT_ENTRA_ID_CLIENT_ID as string,
+      clientSecret: process.env.AUTH_MICROSOFT_ENTRA_ID_CLIENT_SECRET as string,
+      allowDangerousEmailAccountLinking: true,
+      token: {
+        url: 'https://login.microsoftonline.com/common/oauth2/v2.0/token'
+      },
+      authorization: {
+        url: 'https://login.microsoftonline.com/common/oauth2/v2.0/authorize',
+        params: {
+          scope: 'openid profile email offline_access User.Read'
+        }
+      },
+      userinfo: { url: 'https://graph.microsoft.com/oidc/userinfo' },
+      issuer: 'https://login.microsoftonline.com/common/v2.0',
+      profile(profile) {
+        // Removed the image fetching logic here, since it is unnecessary.
+        // We really only want to fetch the image once during Events.signIn({ isNewUser })
+        // and copy the image into our database.
+        return {
+          id: profile.sub,
+          name: profile.name,
+          email: profile.email
+        } as User;
       }
-    },
-    userinfo: { url: 'https://graph.microsoft.com/oidc/userinfo' },
-    issuer: 'https://login.microsoftonline.com/common/v2.0',
-    profile(profile) {
-      // Removed the image fetching logic here, since it is unnecessary.
-      // We really only want to fetch the image once during Events.signIn({ isNewUser })
-      // and copy the image into our database.
-      return {
-        id: profile.sub,
-        name: profile.name,
-        email: profile.email
-      } as User;
-    }
-  })
-] satisfies NextAuthConfig['providers'];
+    })
+].filter(Boolean) satisfies NextAuthConfig['providers'];

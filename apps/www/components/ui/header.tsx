@@ -105,7 +105,7 @@ export default async function Header() {
                   size={"default"}
                   className={"h-9 px-3"}
                 >
-                  Login In
+                  Log In
                 </Button>
                 <Button
                   variant="default"

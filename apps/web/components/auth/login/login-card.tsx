@@ -212,34 +212,38 @@ export function LoginCard(props: CardProps): React.JSX.Element {
         </FormProvider>
         <OrContinueWith />
         <div className="flex flex-row gap-4">
-          <Button
-            type="button"
-            variant="outline"
-            className="flex w-full flex-row items-center gap-2"
-            disabled={!canSubmit}
-            onClick={handleSignInWithGoogle}
-          >
-            <GoogleLogo
-              viewBox="0 0 24 24"
-              width="20"
-              height="20"
-            />
-            Google
-          </Button>
-          <Button
-            type="button"
-            variant="outline"
-            className="flex w-full flex-row items-center gap-2"
-            disabled={!canSubmit}
-            onClick={handleSignInWithMicrosoft}
-          >
-            <MicrosoftLogo
-              viewBox="0 0 21 21"
-              width="20"
-              height="20"
-            />
-            Microsoft
-          </Button>
+          {process.env.NEXT_PUBLIC_GOOGLE_AUTH_ENABLED === 'true' && (
+            <Button
+              type="button"
+              variant="outline"
+              className="flex w-full flex-row items-center gap-2"
+              disabled={!canSubmit}
+              onClick={handleSignInWithGoogle}
+            >
+              <GoogleLogo
+                viewBox="0 0 24 24"
+                width="20"
+                height="20"
+              />
+              Google
+            </Button>
+          )}
+          {process.env.NEXT_PUBLIC_MICROSOFT_AUTH_ENABLED === 'true' && (
+            <Button
+              type="button"
+              variant="outline"
+              className="flex w-full flex-row items-center gap-2"
+              disabled={!canSubmit}
+              onClick={handleSignInWithMicrosoft}
+            >
+              <MicrosoftLogo
+                viewBox="0 0 21 21"
+                width="20"
+                height="20"
+              />
+              Microsoft
+            </Button>
+          )}
         </div>
       </CardContent>
       <CardFooter className="flex justify-center gap-1 text-sm text-muted-foreground">

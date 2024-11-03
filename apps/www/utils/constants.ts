@@ -1,4 +1,4 @@
-import { GitHubLogo, LinkedInLogo, TwitterLogo } from "@/components/ui/icons";
+import { GitHubLogo, TwitterLogo } from "@/components/ui/icons";
 import { PricingTierData } from "@/types/pricing";
 
 export const PRICING_TIERS: {
@@ -50,6 +50,7 @@ export const PRICING_TIERS: {
       isCustom: true,
       description: "Complete solution for large organizations",
       features: [
+        "All business plan features and more",
         "Custom storage",
         "Advanced spam protection",
         "AI integration",
@@ -139,9 +140,5 @@ export const socialMediaLinks = [
   {
     icon: TwitterLogo,
     link: "https://x.com/souremphi",
-  },
-  {
-    icon: LinkedInLogo,
-    link: "https://www.linkedin.com/company/souremphi",
   },
 ];
