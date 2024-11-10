@@ -1,0 +1,29 @@
+name: mail-development
+services:
+  database:
+    image: postgres:16
+    container_name: database
+    volumes:
+      - mail_database:/var/lib/postgresql/data
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U postgres']
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=mail
+    ports:
+      - 5432:5432
+
+  inbucket:
+    image: inbucket/inbucket
+    container_name: mailserver
+    ports:
+      - 9000:9000
+      - 2500:2500
+      - 1100:1100
+
+volumes:
+  mail_database:
